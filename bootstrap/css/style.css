@@ -137,10 +137,10 @@ main {
         z-index: 1;
         height: 50%;
     }
-    .main {
+    .titel {
         position: relative;
     }
-    .main::after {
+    .titel::after {
         content: "";
         bottom: 0;
         top: 0;
@@ -598,7 +598,6 @@ main {
     }    
     to {
         opacity: 1;
-        margin-left: 20%
     }
 }
 
