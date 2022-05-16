@@ -68,15 +68,20 @@ nav {
 }
 
 .nav-link:visited { /*при стандартном показе*/
-    color: white;
+/*    color: white;*/
 }
 
 .nav-link:hover { /*при наведении*/
     color: #e88604;    /*меняем цвет*/
 }
 
-.nav-link:active { /*при нажатии*/
-    transform: scale(1.1); /*увеличиваем блок*/
+.nav-link:active {
+    transform: scale(1.1); 
+    color: #e88604;
+}
+
+.nav-item>.active {
+    color: #e88604;
 }
 
 .white-btn {
@@ -165,17 +170,6 @@ main {
     font-size: 33px;
 }
 
-
-.img_trait {   
-    margin-top: 32px; 
-    margin-bottom: 37px;
-    -webkit-animation: titelmain 2s ease forwards;
-    -o-animation: titelmain 2s ease forwards;
-    animation: titelmain 2s ease forwards;
-    opacity: 0;
-    animation-delay: 2.4s;   
-}
-
 .about_conteiner p {
     color: #3f495a;
 }
@@ -187,15 +181,17 @@ main {
 
 .about_conteiner button:active {
     transform: scale(1.1);
-
+    
 }
 
-.img_about_conteiner, .about_conteiner p, .about_conteiner button {
-    -webkit-animation: titelmain 2s ease forwards;
-    -o-animation: titelmain 2s ease forwards;
-    animation: titelmain 2s ease forwards;
-    opacity: 0;
-    animation-delay: 2.8s; 
+@media (max-width: 575px) {
+    .element-animation_rigth {
+        position: relative;
+        bottom: 0;
+        top: 0;
+        right: 0;
+        left: 0;
+    }
 }
 
 .skills_conteiner {
@@ -205,38 +201,15 @@ main {
     height: 100%;
 }
 
-.skills_conteiner h2, .skills_conteiner>.img_trait {
-    -webkit-animation: titelmain 2s ease forwards;
-    -o-animation: titelmain 2s ease forwards;
-    animation: titelmain 2s ease forwards;
-    opacity: 0;
-    animation-delay: 3.2s;     
-}
 
-.item_skills_conteiner_right {
-    -webkit-animation: itemright 2s ease forwards;
-    -o-animation: itemright 2s ease forwards;
-    animation: itemright 2s ease forwards; 
-    animation-delay: 3.6s;    
-    opacity: 0; 
-}
-
-.item_skills_conteiner_left {
-    -webkit-animation: itemleft 2s ease forwards;
-    -o-animation: itemleft 2s ease forwards;
-    animation: itemleft 2s ease forwards; 
-    animation-delay: 3.6s;    
-    opacity: 0; 
-}
-
-.item_skills_conteiner_right h4, .item_skills_conteiner_left h4 {
+.item_skills_conteiner h4, .item_skills_conteiner h4 {
     color: #cf7600;
     margin-top: 36px;
     font-weight: bold;
     font-size: 19px;
 }
 
-.item_skills_conteiner_right p, .item_skills_conteiner_left p {
+.item_skills_conteiner p, .item_skills_conteiner p {
     color: #3f495a;
     margin-top: 20px;
     font-weight: 500;
@@ -245,7 +218,10 @@ main {
 .cases_conteiner {
     text-align: center;
     margin-bottom: 10%;
+    
 }
+
+
 
 .client_cases_conteiner, .project_cases_conteiner {
     text-align: left;
@@ -262,8 +238,7 @@ main {
     text-indent: 3px;
 }
 
-
-.client_cases_conteiner button {
+.cases_button {
     width: 200px;
     height: 44px;
     background-color: #00b6af; 
@@ -274,29 +249,13 @@ main {
     transform: scale(1);
 }
 
-.client_cases_conteiner button:hover {
+.cases_button:hover {
     background: #344051;
     color: white;
 }
 
-.client_cases_conteiner button:active {
+.cases_button:active {
     transform: scale(1.1);
-}
-
-.cases_conteiner h2, .cases_conteiner>.img_trait {
-    -webkit-animation: titelmain 2s ease forwards;
-    -o-animation: titelmain 2s ease forwards;
-    animation: titelmain 2s ease forwards;
-    opacity: 0;
-    animation-delay: 4s;     
-}
-
-.client_cases_conteiner, .cases_conteiner p, .project_cases_conteiner, .cases_conteiner>img {
-    -webkit-animation: titelmain 2s ease forwards;
-    -o-animation: titelmain 2s ease forwards;
-    animation: titelmain 2s ease forwards;
-    opacity: 0;
-    animation-delay: 4.4s; 
 }
 
 .cost_conteiner h2 {
@@ -328,7 +287,7 @@ main {
     margin-top: 28px;
     color: black;
 }
-
+ 
 .right{
     float: right;
     text-align: center;
@@ -356,18 +315,7 @@ main {
     background-color: white;
     box-shadow: 0px 0px 10px #FFA500;
 }
-
-.cost_conteiner{
-    -webkit-animation: titelmain 2s ease forwards;
-    -o-animation: titelmain 2s ease forwards;
-    animation: titelmain 2s ease forwards;
-    opacity: 0;
-    animation-delay: 4.8s; 
-}
-
 .cost button {
-/*    margin: 37px 64px;*/
-/*    position: relative;*/
     width: 200px;
     height: 44px;
     background-color: #00b6af; 
@@ -394,37 +342,15 @@ main {
     height: 100%;
 }
 
-.statistic_conteiner h2, .statistic_conteiner>.img_trait {
-    -webkit-animation: titelmain 2s ease forwards;
-    -o-animation: titelmain 2s ease forwards;
-    animation: titelmain 2s ease forwards;
-    opacity: 0;
-    animation-delay: 5.2s;     
-}
 
-.item_statistic_conteiner_right {
-    -webkit-animation: itemright 2s ease forwards;
-    -o-animation: itemright 2s ease forwards;
-    animation: itemright 2s ease forwards; 
-    animation-delay: 5.6s;   
-    opacity: 0; 
-}
-
-.item_statistic_conteiner_left {
-    -webkit-animation: itemleft 2s ease forwards;
-    -o-animation: itemleft 2s ease forwards;
-    animation: itemleft 2s ease forwards; 
-    animation-delay: 5.6s;    
-    opacity: 0; 
-}
-.item_statistic_conteiner_right h4, .item_statistic_conteiner_left h4 {
+.item_statistic_conteiner h4 {
     color: #384354;
     margin-top: 15px;
     font-weight: bold;
     font-size: 25px;
 }
 
-.item_statistic_conteiner_right p, .item_statistic_conteiner_left p {
+.item_statistic_conteiner p{
     color: #3f495a;
     margin-top: 15px;
     text-indent: 3px;
@@ -435,22 +361,12 @@ main {
     text-align: center;
 }
 
-.comment_conteiner h2, .comment_conteiner>.img_trait {
-    -webkit-animation: titelmain 2s ease forwards;
-    -o-animation: titelmain 2s ease forwards;
-    animation: titelmain 2s ease forwards;
-    opacity: 0;
-    animation-delay: 6s;     
+.carousel-indicators [data-bs-target] {
+    height: 15px;
+    width: 15px;
+    color: #e46500;
 }
 
-
-.comment_conteiner>img, .comment_conteiner p, .comment_conteiner>input {
-    -webkit-animation: titelmain 2s ease forwards;
-    -o-animation: titelmain 2s ease forwards;
-    animation: titelmain 2s ease forwards;
-    opacity: 0;
-    animation-delay: 6.4s; 
-}
 
 
 .contacts_conteiner {
@@ -463,6 +379,7 @@ main {
 .contacts_conteiner h2 {
     color: #fff;
 }
+
 
 
 .item_contacts_conteiner>img { 
@@ -494,30 +411,6 @@ main {
     height: 94px;
 } 
 
-.contacts_conteiner h2, .contacts_conteiner>.img_trait {
-    -webkit-animation: titelmain 2s ease forwards;
-    -o-animation: titelmain 2s ease forwards;
-    animation: titelmain 2s ease forwards;
-    opacity: 0;
-    animation-delay: 6.8s;     
-}
-
-.item_contacts_conteiner {
-    -webkit-animation: itemright 2s ease forwards;
-    -o-animation: itemright 2s ease forwards;
-    animation: itemright 2s ease forwards; 
-    animation-delay: 7.2s;   
-    opacity: 0; 
-}
-
-.contacts_conteiner>img, .contacts_conteiner p, .messange_contacts_conteiner {
-    -webkit-animation: titelmain 2s ease forwards;
-    -o-animation: titelmain 2s ease forwards;
-    animation: titelmain 2s ease forwards;
-    opacity: 0;
-    animation-delay: 7.6s; 
-}
-
 .messange_contacts_conteiner input:hover, .messange_contacts_conteiner textarea:hover, 
 .messange_contacts_conteiner button {
     border: 2px solid;
@@ -534,7 +427,6 @@ main {
     border: 2px solid #fff;
     color: #fff;
     font-size: 14px;
-/*    background-color: none;*/
     transition: all, 0.2s;
     transform: scale(1);
 }
@@ -548,14 +440,6 @@ main {
     transform: scale(1.1);
 }
 
-.map_contacts_conteiner {
-    height: 350px;
-    -webkit-animation: titelmain 2s ease forwards;
-    -o-animation: titelmain 2s ease forwards;
-    animation: titelmain 2s ease forwards; 
-    animation-delay: 8s;   
-    opacity: 0; 
-}
 
 
 .footer {
@@ -564,11 +448,49 @@ main {
     text-align: center;
     color: #fff;
     line-height: 60px;
-    -webkit-animation: titelmain 2s ease forwards;
-    -o-animation: titelmain 2s ease forwards;
-    animation: titelmain 2s ease forwards; 
-    animation-delay: 8.4s;   
-    opacity: 0; 
+}
+
+
+
+.element-animation {
+    opacity: 0;
+    margin-top: -100px;
+    
+}
+
+.element-animation.show-animation {
+    opacity: 1;
+    margin-top: 0;
+    transition: opacity 2s;
+    transition: margin-top 2s;
+    
+}
+
+.element-animation_rigth {
+    opacity: 0;
+    position: relative;
+    right: 68%;
+}
+
+.element-animation_rigth.show-animation_rigth {
+    opacity: 1;
+    right: 0;
+    transition: opacity 2s;
+    transition: right 2s;
+}
+
+
+.element-animation_left {
+    opacity: 0;
+    position: relative;
+    left: 68%;
+}
+
+.element-animation_left.show-animation_left {
+    opacity: 1;
+    left: 0;
+    transition: opacity 2s;
+    transition: left 2s;
 }
 
 @keyframes comming {
@@ -607,28 +529,10 @@ main {
         opacity: 0;
         margin-top: 0px; 
     }
-
+    
     to {
         opacity: 1;
     }
 }
 
-@keyframes itemright {
-    from {
-        opacity: 0;
-        margin-left: -300%;
-    }
-    to {
-       opacity: 1; 
-    }
-}
 
-@keyframes itemleft {
-    from {
-        opacity: 0;
-        margin-right: -300%;
-    }
-    to {
-       opacity: 1; 
-    }
-}
