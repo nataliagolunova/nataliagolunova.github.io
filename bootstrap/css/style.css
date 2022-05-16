@@ -184,15 +184,6 @@ main {
     
 }
 
-@media (max-width: 575px) {
-    .element-animation_rigth {
-        position: relative;
-        bottom: 0;
-        top: 0;
-        right: 0;
-        left: 0;
-    }
-}
 
 .skills_conteiner {
     text-align: center;
@@ -364,7 +355,7 @@ main {
 .carousel-indicators [data-bs-target] {
     height: 15px;
     width: 15px;
-    color: #e46500;
+    background-color: #e46500 !important;
 }
 
 
@@ -393,10 +384,13 @@ main {
 }
 
 .messange_contacts_conteiner {
-    margin-bottom: 25%;
     -webkit-transition: all, 0.4s;
     -o-transition: all, 0.4s;
     transition: all, 0.4s;
+}
+
+.messange_nav {
+    
 }
 
 .messange_contacts_conteiner input, .messange_contacts_conteiner textarea {
@@ -466,32 +460,6 @@ main {
     
 }
 
-.element-animation_rigth {
-    opacity: 0;
-    position: relative;
-    right: 68%;
-}
-
-.element-animation_rigth.show-animation_rigth {
-    opacity: 1;
-    right: 0;
-    transition: opacity 2s;
-    transition: right 2s;
-}
-
-
-.element-animation_left {
-    opacity: 0;
-    position: relative;
-    left: 68%;
-}
-
-.element-animation_left.show-animation_left {
-    opacity: 1;
-    left: 0;
-    transition: opacity 2s;
-    transition: left 2s;
-}
 
 @keyframes comming {
     from {

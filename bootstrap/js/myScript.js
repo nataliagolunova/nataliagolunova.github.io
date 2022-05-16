@@ -10,18 +10,6 @@ $(document).ready(function(){
         observer.observe(el);
     });
     
-    let observer_rigth = new IntersectionObserver(onEntry_rigth, options);
-    let elements_rigth = $('.element-animation_rigth');
-    elements_rigth.each((i,el) => {
-        observer_rigth.observe(el);
-    });
-    
-    let observer_left = new IntersectionObserver(onEntry_left, options);
-    let elements_left = $('.element-animation_left');
-    elements_left.each((i,el) => {
-        observer_left.observe(el);
-    });
-    
     
     //скролл, добавляется action для пункта меню
     $(window).scroll(() => {
@@ -107,23 +95,6 @@ function onEntry (entry) {
     entry.forEach(change => {
         if (change.isIntersecting) {
             change.target.classList.add('show-animation');
-        }
-    });
-};
-
-function onEntry_rigth (entry)  {
-    entry.forEach(change => {
-        if (change.isIntersecting) {
-            change.target.classList.add('show-animation_rigth');
-        }
-    });
-};
-
-
-function onEntry_left (entry)  {
-    entry.forEach(change => {
-        if (change.isIntersecting) {
-            change.target.classList.add('show-animation_left');
         }
     });
 };
