@@ -1,15 +1,52 @@
 //"use strict"
 
 $(document).ready(function(){        
+    new WOW().init();
     
      //анимация. блоки начинают появляться, когда до них доходит скролл
-    let options = {threshold: [0.5]};
-    let observer = new IntersectionObserver(onEntry, options);
-    let elements = $('.element-animation');
-    elements.each((i,el) => {
-        observer.observe(el);
+//    let options = {threshold: [0.5]};
+//    let observer = new IntersectionObserver(onEntry, options);
+//    let elements = $('.element-animation');
+//    elements.each((i,el) => {
+//        observer.observe(el);
+//    });
+    
+    //обавляет цвет навбару при скролле
+    var topNav = $('nav');
+    if (topNav.length) {
+        $(window).scroll(() => {
+          if ($(this).scrollTop()) {			
+           	topNav.css('background', '#4f3e34');			
+          } else {
+            topNav.css('background', '');			
+          }
+        });
+      };
+        
+   //маска 
+    $("#inputTel").mask("+7(999) 999-9999");
+    //при нажатии на кнопку, передача данных
+    
+    $('form').submit( function(event) {
+        event.preventDefault();
+        $.ajax({
+            type: "POST", 
+            url: "php/mail.php",
+            data: $(this).serialize()
+        }).done(function () {
+            $(this).find("input").val("");
+            alert('Успешно отправлено!');
+            $('form').trigger("reset");
+        });
+        return false;    
     });
     
+    
+    $(".mess_nav").click(() => {
+        alert('Lorem');
+    });
+    
+
     
     //скролл, добавляется action для пункта меню
     $(window).scroll(() => {
@@ -26,38 +63,51 @@ $(document).ready(function(){
         });
     });
     
-    
-    //анимация для цифр
-    $('.count_statistic').each(function () {
-       $(this).prop('Counter',0).animate({
-        Counter: $(this).text()
-        }, {
-         duration: 4000,
-         easing: 'linear',
-         step: function (now) {
-            $(this).text(Math.ceil(now));
-         }
-        });
-    });    
-    
-    
-    
+
+    //анимация для цифр по скроллу
+    var target_block = $(".count_statistic"); // Ищем блок 
+    var blockStatus = true;
+    $(window).scroll(function() {
+        var scrollEvent = ($(window).scrollTop() > (target_block.position().top - $(window).height()));
+        if(scrollEvent && blockStatus) {
+            blockStatus = false; // Запрещаем повторное выполнение функции до следующей перезагрузки страницы.
+            $('.count_statistic').each(function () {
+               $(this).prop('Counter',0).animate({
+                Counter: $(this).text()
+                }, {
+                 duration: 5000,
+                 easing: 'linear',
+                 step: function (now) {
+                    $(this).text(Math.ceil(now));
+                 }
+                });
+            });
+        }
+    });
+
 });
+
+
 
 //модальное окно для стоимости и сообщения
 $('.submit_messange').click(function() {
     if(($('.mess_name').val() == '') || ($('.mess_email').val() == '')){
-        $('.modal-body').find("p").text('Пожалуйста, заполните данные для отправки сообщения!');
+        alert('Пожалуйста, заполните данные для отправки сообщения!');          
+//        $('#exampleModal3').find('.modal-body').find("p").text('Пожалуйста, заполните данные для отправки сообщения!');
     }
     else if($('.mess_mess').val() == ''){
-        $('.modal-body').find("p").text('Пожалуйста, введите текст сообщения!');
+        alert('Пожалуйста, введите текст сообщения!'); 
+//        $('#exampleModal3').find('.modal-body').find("p").text('Пожалуйста, введите текст сообщения!');
     }
-    else {
-        console.log($('.mess_name').val());
-        console.log($('.mess_mess').val());
-        console.log($('.mess_email').val());
-        $('.modal-body').find("p").text('Ваше сообщение отправлено! ');
-    };
+//    else {
+//        $('#exampleModal3').find(".ui-dialog-titlebar-close").click();;    
+//        $('form').submit();
+//        
+//        console.log($('.mess_name').val());
+//        console.log($('.mess_mess').val());
+//        console.log($('.mess_email').val());
+//        $('.modal-body').find("p").text('Ваше сообщение отправлено! ');
+//    };
 });
 
 //модальное окно для кейсов
@@ -66,10 +116,11 @@ $('.carousel-item, .active').click(function() {
     let case_p = $(this).find('.project_cases_conteiner').find('p').text();
     let case_name = $(this).find('.project_cases_conteiner').find('h4').text();
     
-    $('.modal-body').find("img").attr('src', case_img);
-    $('.modal-body').find("p").text(case_p);
-    $('.modal-title').text(case_name);    
+    $('#exampleModal1').find('.modal-body').find("img").attr('src', case_img);
+    $('#exampleModal1').find('.modal-body').find("p").text(case_p);
+    $('#exampleModal1').find('.modal-title').text(case_name);    
 });
+
 
 //калькулятор
 $('.form-select').change(function() {
@@ -91,13 +142,13 @@ $('button[href^="#"]').click(function(){
     $('html, body').animate({scrollTop: $(valHref).offset().top - 50 + "px"});
 });
 
-function onEntry (entry) {
-    entry.forEach(change => {
-        if (change.isIntersecting) {
-            change.target.classList.add('show-animation');
-        }
-    });
-};
+//function onEntry (entry) {
+//    entry.forEach(change => {
+//        if (change.isIntersecting) {
+//            change.target.classList.add('show-animation');
+//        }
+//    });
+//};
 
 
 let MassTypeWebsite = [
@@ -131,5 +182,5 @@ function message(website,design,adapt) {
         $(".summterm").text(summterm(website,design,adapt));
         $(".summcost").text(summcost(website,design,adapt));
     
-}
+};
 
